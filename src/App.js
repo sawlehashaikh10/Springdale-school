@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Academics from './components/Academics';
+import Admission from './components/Admission';
+import Faculty from './components/Faculty';
+import Students from './components/Students';
+import Gallery from './components/Gallery'
+import Footer from './components/Footer';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> 
+      <Navbar/>
+      <div style={{ marginTop: "15px"}}/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/academics" element={<Academics/>}/>
+        <Route path="/admission" element={<Admission/>}/>
+        <Route path="/faculty" element={<Faculty/>}/>
+        <Route path="/students" element={<Students/>}/>
+        <Route path="/gallery" element={<Gallery/>}/>
+      </Routes>
+      <Footer/>
+    </Router>
   );
 }
 
 export default App;
+
